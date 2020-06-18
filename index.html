@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desencriptar Texto</title>
+</head>
+<style>
+</style>
+<body>
+    <span> Texto a desencriptar: Cevzreb erfhryir ry ceboyrzn. Ragbaprf, rfpevor ry póqvtb</span><br>
+    <label for="texto">Ingresa el texto</label>
+    <input type="text" id="texto" placeholder="Texto a descriptar"> 
+    <button onclick="desencriptar()">Desencriptar</button><br>
+    <span> Tambien puedes desencriptar estos mensajes!</span><br>
+    <span>  Rfgr rf ha zrafnwr rapevcgnqb cbe zrgbqb EBG</span><br>
+    <span>  Zrafnwr rapevcgnqb cbe Xriva Mnengr</span>
+    <span>  Zhpunf tenpvnf cbe gbqb</span>
+    
+</body>
+
+<script>
+    function desencriptar() {
+        let abcedario =     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split("");
+        var abcdarioRot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".split("");
+        // let frase = "Cevzreb erfhryir ry ceboyrzn Ragbaprf rfpevor ry póqvtb"
+        // Cevzreb erfhryir ry ceboyrzn. Ragbaprf, rfpevor ry póqvtb
+        let desencript = "";
+        texto = document.getElementById('texto').value.replace("ó", "b");
+
+        for (i = 0; i < texto.length; i++) {
+
+            for (f = 0; f < abcedario.length; f++) {
+
+                if (texto[i] == abcedario[f]) {
+                    desencript += abcdarioRot13[f];
+                }
+                if (texto[i] == " ") {
+                    desencript += " ";
+                }
+
+            }
+        }
+
+        document.body.innerHTML = desencript;
+
+
+    }
+</script>
+
+</html>
