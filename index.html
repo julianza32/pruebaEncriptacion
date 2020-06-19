@@ -4,26 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Desencriptar Texto</title>
 </head>
 <style>
+    .contenedor{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-top: 100px;
+    }
+
+    .contenedorL{
+        margin-top: 20px;
+    }
 </style>
-<body>
-    <span> Texto a desencriptar: Cevzreb erfhryir ry ceboyrzn. Ragbaprf, rfpevor ry póqvtb</span><br>
-    <label for="texto">Ingresa el texto</label>
-    <input type="text" id="texto" placeholder="Texto a descriptar"> 
-    <button onclick="desencriptar()">Desencriptar</button><br>
-    <span> Tambien puedes desencriptar estos mensajes!</span><br>
-    <span>  Rfgr rf ha zrafnwr rapevcgnqb cbe zrgbqb EBG</span><br>
-    <span>  Zrafnwr rapevcgnqb cbe Xriva Mnengr</span>
-    <span>  Zhpunf tenpvnf cbe gbqb</span>
+<body class="container contenedor">
+    <div class="subcontenedor">
+
+        <span> Texto a desencriptar: Cevzreb erfhryir ry ceboyrzn. Ragbaprf, rfpevor ry póqvtb</span><br>
+        <label for="texto">Ingresa el texto</label>
+        <input type="text" id="texto" placeholder="Texto a desencriptar"> 
+        <button class="waves-effect waves-light btn" onclick="desencriptar()">Desencriptar</button><br>
+        <div class="contenedorL">
+
+            <span> Tambien puedes desencriptar estos mensajes!</span><br>
+            <span>  Rfgr rf ha zrafnwr rapevcgnqb cbe zrgbqb EBG</span><br>
+            <span>  Zrafnwr rapevcgnqb cbe Xriva Mnengr</span><br>
+            <span>  Zhpunf tenpvnf cbe gbqb</span><br>
+            <span id="mensaje"></span>
+        </div>
+    </div>
     
 </body>
 
 <script>
     function desencriptar() {
-        let abcedario =     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split("");
-        var abcdarioRot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".split("");
+        let abcedario =     '.,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split("");
+        var abcdarioRot13 = ".,NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".split("");
         // let frase = "Cevzreb erfhryir ry ceboyrzn Ragbaprf rfpevor ry póqvtb"
         // Cevzreb erfhryir ry ceboyrzn. Ragbaprf, rfpevor ry póqvtb
         let desencript = "";
@@ -43,8 +61,11 @@
             }
         }
 
-        document.body.innerHTML = desencript;
+        
+        document.getElementById('mensaje').innerText = desencript;
 
+/*         document.body.innerHTML = desencript;
+ */
 
     }
 </script>
